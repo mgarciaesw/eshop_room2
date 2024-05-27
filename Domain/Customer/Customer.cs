@@ -1,16 +1,15 @@
-﻿namespace Domain.Customer
+﻿using Domain.Primitives;
+
+namespace Domain.Customer
 {
-    public sealed class Customer
+    public sealed class Customer : AggregateRoot
     {
         public FirstName FirstName { get; set; }
         public LastName LastName { get; set; }
         public Email Email { get; set; }
-        
-        public Guid Id { get; private set; }
 
-        private Customer(Guid id, FirstName firstName, LastName lastName, Email email)
+        private Customer(Guid id, FirstName firstName, LastName lastName, Email email) : base(id)
         {
-            Id = id;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
