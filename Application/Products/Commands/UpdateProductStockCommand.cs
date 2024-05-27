@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Products.Commands
+﻿namespace Application.Products.Commands
 {
-    public sealed record UpdateProductStockCommand(int)
-    {
-    }
+    public sealed record UpdateProductStockCommand(string Id, int Stock);
 }
