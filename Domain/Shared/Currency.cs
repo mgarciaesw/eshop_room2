@@ -1,4 +1,4 @@
-namespace Domain.Order;
+namespace Domain.Shared;
 
 public sealed record Currency
 {

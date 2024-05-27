@@ -1,6 +1,7 @@
 namespace Domain.Order;
 
 using Domain.Primitives;
+using Domain.Shared;
 
 public class Order: AggregateRoot
 {
