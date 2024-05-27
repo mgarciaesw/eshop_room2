@@ -1,4 +1,6 @@
-﻿namespace Domain.Product
+﻿using Domain.Products.Exceptions;
+
+namespace Domain.Products
 {
     public sealed record ProductName
     {
@@ -10,15 +12,11 @@
 
         public static ProductName Create(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
+            if (
+                string.IsNullOrWhiteSpace(value) 
+                || MaximumLength < value.Length)
             {
-
-                throw new Exception();
-            }
-
-            if (MaximumLength < value.Length)
-            {
-                throw new Exception();
+                throw new ProductNameIsInvalidException();
             }
 
             return new ProductName(value);
