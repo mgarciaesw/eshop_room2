@@ -4,13 +4,13 @@ namespace Domain.Products
 {
     public sealed record StockQuantity
     {
-        public const decimal MinimumValue = 0;
+        public const int MinimumValue = 0;
 
-        private StockQuantity(decimal value) => Value = value;
+        private StockQuantity(int value) => Value = value;
 
-        public decimal Value { get; init; }
+        public int Value { get; init; }
 
-        public static StockQuantity Create(decimal value)
+        public static StockQuantity Create(int value)
         {
             if (MinimumValue < value)
             {

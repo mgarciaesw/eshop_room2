@@ -15,6 +15,11 @@ namespace Domain.Products
             Stock = stock;
         }
 
+        public void UpdateStock(StockQuantity stock)
+        {
+            Stock = stock;
+        }
+
         public static Product Create(ProductName name, StockQuantity stock)
         {
             return new Product(Guid.NewGuid(), name, stock);
