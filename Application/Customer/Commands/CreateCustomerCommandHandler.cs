@@ -13,7 +13,7 @@ public sealed class CreateCustomerCommandHandler(ICustomerRepository customerRep
             ShippingAddress.Create(request.ShippingAddress)
             );
 
-        await customerRepository.Create(customer);
+        await customerRepository.Add(customer);
     }
 }
 
