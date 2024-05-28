@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
 {
@@ -9,6 +10,7 @@ namespace Application
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+                configuration.AddOpenBehavior(typeof(UnitOfWorkBehaviour<,>));
             });
 
             return services;
