@@ -1,6 +1,6 @@
 namespace Domain.Customer;
 
-public sealed record FirstName()
+public sealed record FirstName
 {
     public string Value { get; set; }
     public const int MinimunLength = 5;

@@ -2,6 +2,7 @@
 using Application.Products.Queries;
 using Domain.Products;
 using Domain.Products.Exceptions;
+using Domain.Shared;
 using Moq;
 
 namespace Application.Unit.Products.Queries
@@ -43,9 +44,9 @@ namespace Application.Unit.Products.Queries
             await Assert.ThrowsAsync<ProductNotFoundException>(() => _handler.Handle(query));
         }
 
-        private static Product CreateProduct(string? name = null, int? stock = null)
+        private static Product CreateProduct(string? name = null, string? description = null, int? stock = null, Money? price = null)
         {
-            return Product.Create(ProductName.Create(name ?? "name"), StockQuantity.Create(stock ?? 0));
+            return Product.Create(ProductName.Create(name ?? "name"), ProductDescription.Create(description ?? "description"), StockQuantity.Create(stock ?? 0), Money.Zero());
         }
     }
 }

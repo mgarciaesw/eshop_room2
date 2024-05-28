@@ -1,6 +1,6 @@
 namespace Domain.Customer;
 
-public sealed record Email()
+public sealed record Email
 {
     public string Value { get; set; }
     private Email(string value) => Value = value;

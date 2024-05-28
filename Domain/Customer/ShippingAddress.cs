@@ -2,7 +2,7 @@ using System.Data;
 
 namespace Domain.Customer;
 
-public sealed record ShippingAddress()
+public sealed record ShippingAddress
 {
     public string Value { get; set; }
     private ShippingAddress(string value) => Value = value;
