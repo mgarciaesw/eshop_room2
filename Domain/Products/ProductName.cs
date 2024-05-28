@@ -4,7 +4,7 @@ namespace Domain.Products
 {
     public sealed record ProductName
     {
-        public const int MaximumLength = 100;
+        public const int MinimumLength = 3;
 
         private ProductName(string value) => Value = value;
 
@@ -14,7 +14,7 @@ namespace Domain.Products
         {
             if (
                 string.IsNullOrWhiteSpace(value) 
-                || MaximumLength < value.Length)
+                || value.Length < MinimumLength)
             {
                 throw new ProductNameIsInvalidException();
             }

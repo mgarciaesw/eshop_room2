@@ -12,7 +12,7 @@ namespace Domain.Products
 
         public static StockQuantity Create(int value)
         {
-            if (MinimumValue < value)
+            if (value < MinimumValue)
             {
                 throw new StockQuantityIsInvalidException();
             }

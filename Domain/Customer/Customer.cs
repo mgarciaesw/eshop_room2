@@ -4,12 +4,12 @@ namespace Domain.Customer
 {
     public sealed class Customer : AggregateRoot
     {
-        public FirstName FirstName { get; set; }
-        public LastName LastName { get; set; }
-        public Email Email { get; set; }
-        public ShippingAddress ShippingAddress { get; set; }
+        public FirstName FirstName { get; private set; }
+        public LastName LastName { get; private set; }
+        public Email Email { get; private set; }
+        public ShippingAddress ShippingAddress { get; private set; }
 
-        private Customer(Guid id, FirstName firstName, LastName lastName, Email email,  ShippingAddress shippingAddress) : base(id)
+        private Customer(Guid id, FirstName firstName, LastName lastName, Email email, ShippingAddress shippingAddress) : base(id)
         {
             FirstName = firstName;
             LastName = lastName;
