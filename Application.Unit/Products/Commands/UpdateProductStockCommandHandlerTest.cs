@@ -1,10 +1,9 @@
 ﻿using Application.Products.Commands;
-using Application.Products.Queries;
 using Domain.Products;
 using Domain.Products.Exceptions;
 using Moq;
 
-namespace Application.Unit.Products.Queries
+namespace Application.Unit.Customers.Queries
 {
     public sealed class UpdateProductStockCommandHandlerTest
     {
