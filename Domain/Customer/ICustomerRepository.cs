@@ -1,4 +1,4 @@
-namespace Domain.Products;
+namespace Domain.Customer;
 
 public interface ICustomerRepository
 {
