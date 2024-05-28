@@ -5,14 +5,18 @@ VisualStudioVersion = 17.8.34902.127
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{43334880-37D7-4A00-A332-1D95424D5BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{EDFCF7CD-C7BB-4C82-964A-68073776D410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{EDFCF7CD-C7BB-4C82-964A-68073776D410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Unit", "Application.Unit\Application.Unit.csproj", "{5BAE3BEA-390D-455E-A8CB-77EA44A36918}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Unit", "Application.Unit\Application.Unit.csproj", "{5BAE3BEA-390D-455E-A8CB-77EA44A36918}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1B9281D-7111-4751-ABD7-AC662977C518}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ui.Api", "Ui.Api\Ui.Api.csproj", "{0909AADD-6D58-4F63-860E-906E9E6EBF00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +36,14 @@ Global
 		{5BAE3BEA-390D-455E-A8CB-77EA44A36918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BAE3BEA-390D-455E-A8CB-77EA44A36918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BAE3BEA-390D-455E-A8CB-77EA44A36918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0909AADD-6D58-4F63-860E-906E9E6EBF00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0909AADD-6D58-4F63-860E-906E9E6EBF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0909AADD-6D58-4F63-860E-906E9E6EBF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0909AADD-6D58-4F63-860E-906E9E6EBF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
