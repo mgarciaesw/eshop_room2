@@ -3,7 +3,8 @@ using Domain.Products;
 using Domain.Products.Exceptions;
 using Moq;
 
-namespace Application.Unit.Customers.Queries
+namespace Application.Unit.Products.Queries
+
 {
     public sealed class UpdateProductStockCommandHandlerTest
     {
