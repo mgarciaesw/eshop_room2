@@ -2,18 +2,18 @@ namespace Domain.Customer;
 
 public sealed record FirstName
 {
-    public string Value { get; set; }
-    public const int MinimunLength = 5;
+    public string Value { get; init; }
+    public const int MinimumLength = 5;
     private FirstName(string value) => Value = value;
 
     public static FirstName Create(string value)
     {
-        if (string.IsNullOrWhiteSpace(value) || value.Length < MinimunLength)
+        if (string.IsNullOrWhiteSpace(value) || value.Length < MinimumLength)
         {
             throw new ArgumentNullException();
         }
 
-        if (value.Length < MinimunLength)
+        if (value.Length < MinimumLength)
         {
             throw new ArgumentOutOfRangeException();
         }

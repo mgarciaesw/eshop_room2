@@ -4,7 +4,7 @@ namespace Domain.Customer;
 
 public sealed record ShippingAddress
 {
-    public string Value { get; set; }
+    public string Value { get; init; }
     private ShippingAddress(string value) => Value = value;
 
     public static ShippingAddress Create(string value)
