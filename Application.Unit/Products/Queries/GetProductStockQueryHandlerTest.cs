@@ -24,7 +24,7 @@ namespace Application.Unit.Products.Queries
 
             var expectedProduct = CreateProduct();
             _productRepository.Setup(mock => mock.GetById(It.IsAny<Guid>()))
-                .ReturnsAsync(expectedProduct);
+                .Returns(expectedProduct);
 
             var result = await _handler.Handle(query);
 
@@ -43,9 +43,9 @@ namespace Application.Unit.Products.Queries
             await Assert.ThrowsAsync<ProductNotFoundException>(() => _handler.Handle(query));
         }
 
-        private static Product CreateProduct(string? name = null, int? stock = null)
+        private static Product CreateProduct()
         {
-            return Product.Create(ProductName.Create(name ?? "name"), StockQuantity.Create(stock ?? 0));
+            return Product.Create(Guid.NewGuid(), ProductName.Create("name"), StockQuantity.Create(0));
         }
     }
 }

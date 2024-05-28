@@ -1,4 +1,6 @@
-﻿namespace Application.Products.Queries
+﻿using MediatR;
+
+namespace Application.Products.Queries
 {
-    public sealed record GetProductStockQuery(string Id);
+    public sealed record GetProductStockQuery(string Id) : IRequest<int>;
 }
