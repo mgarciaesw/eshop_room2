@@ -6,11 +6,7 @@ public sealed class CreateCustomerCommandHandler(ICustomerRepository CustomerRep
 {
     public async Task Handle(CreateCustomerCommand request, CancellationToken cancellationToken = default)
     {
-        var customer = Customer.Create(
-            request.FirstName,
-            request.LastName,
-            request.ShippingAddress
-        );
+        var customer = Domain.Customer.Customer.Create(request.FirstName, request.LastName, request.Email, request.ShippingAddress);
 
         await CustomerRepository.Create(customer);
     }
