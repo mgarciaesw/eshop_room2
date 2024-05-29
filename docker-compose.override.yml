@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  ui.api:
+    ports:
+      - 8880:8880
+      - 8881:8881
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8880
+      - ASPNETCORE_HTTPS_PORTS=8881
+      - "ASPNETCORE_Database__Server=${DATABASE_SERVER}"
+      - "ASPNETCORE_Database__Port=${DATABASE_PORT}"
+      - "ASPNETCORE_Database__Name=${DATABASE_NAME}"
+      - "ASPNETCORE_Database__User=${DATABASE_USER}"
+      - "ASPNETCORE_Database__Password=${DATABASE_PASSWORD}"
+
+  database:
+    ports:
+      - 5432:5432
+    volumes:
+      - ./.docker/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=${DATABASE_NAME}"
+      - "POSTGRES_USER=${DATABASE_USER}"
+      - "POSTGRES_PASSWORD=${DATABASE_PASSWORD}"
+
+  adminer:
+    ports:
+      - 8888:8080
