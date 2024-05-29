@@ -1,4 +1,5 @@
 ﻿using Domain.Products;
+using Domain.Shared;
 
 namespace Infrastructure.Persistence.InMemory
 {

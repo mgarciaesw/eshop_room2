@@ -1,7 +1,6 @@
 ﻿using Application.Products.Commands;
 using Domain.Products;
 using Domain.Products.Exceptions;
-using Domain.Shared;
 using Moq;
 
 namespace Application.Unit.Products.Commands
@@ -45,7 +44,10 @@ namespace Application.Unit.Products.Commands
 
         private static Product CreateProduct()
         {
-            return Product.Create(Guid.NewGuid(), ProductName.Create("name"), StockQuantity.Create(0));
+            return Product.Create(
+                Guid.NewGuid(),
+                ProductName.Create("name"),
+                StockQuantity.Create(0));
         }
     }
 }
