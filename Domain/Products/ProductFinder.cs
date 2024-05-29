@@ -4,9 +4,9 @@ namespace Domain.Products
 {
     public sealed class ProductFinder(IProductRepository productRepository)
     {
-        public async Task<Product> FindById(Guid id)
+        public Product FindById(string id)
         {
-            var product = await productRepository.GetById(id);
+            var product = productRepository.GetById(new Guid(id));
 
             if (product is null)
             {
