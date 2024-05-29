@@ -8,7 +8,7 @@ DDD course project
 ## Set Up
 
 1. **Set environment variables.** Create a `.env` using `.env.example` as template and assign the missings values.
-1. 
+
 2. **Build and start the containers.**
 
 3. **Execute the migrations.** Check the related doc in the section *Migrations*.
