@@ -290,3 +290,8 @@ __pycache__/
 
 # VS
 .vs/
+
+ # environment
+.env
+Tools.MigrationRunner/appsettings.json
+.docker/postgresql/data/*

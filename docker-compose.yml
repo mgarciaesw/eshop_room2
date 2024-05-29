@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+    ui.api:
+        image: ${DOCKER_REGISTRY-}eshop.ui.api
+        build:
+            context: .
+            dockerfile: Ui.Api/Dockerfile
+        container_name: eshop.ui.api
+        depends_on: 
+            - database
+        networks: 
+            - eshop-network
+
+    database:
+        image: postgres:16.2-alpine
+        container_name: eshop.database
+        restart: always
+        networks: 
+            - eshop-network
+
+    adminer:
+        image: adminer
+        container_name: eshop.adminer
+        restart: always
+        depends_on:
+            - database
+        networks:
+            - eshop-network
+
+networks:
+    eshop-network:
+        driver: bridge

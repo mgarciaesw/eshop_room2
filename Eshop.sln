@@ -11,12 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Unit", "Applica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1B9281D-7111-4751-ABD7-AC662977C518}"
 	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		.env.example = .env.example
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ui.Api", "Ui.Api\Ui.Api.csproj", "{0909AADD-6D58-4F63-860E-906E9E6EBF00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ui.Api", "Ui.Api\Ui.Api.csproj", "{0909AADD-6D58-4F63-860E-906E9E6EBF00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A06BF369-262F-4427-BD5A-068EFE8D050C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.MigrationRunner", "Tools.MigrationRunner\Tools.MigrationRunner.csproj", "{F8EA1965-9276-4F0B-A146-D48FBFE0DE39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +50,14 @@ Global
 		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{275FB4E0-E81E-42CA-ADD1-8BA5108C32AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A06BF369-262F-4427-BD5A-068EFE8D050C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06BF369-262F-4427-BD5A-068EFE8D050C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06BF369-262F-4427-BD5A-068EFE8D050C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06BF369-262F-4427-BD5A-068EFE8D050C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EA1965-9276-4F0B-A146-D48FBFE0DE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EA1965-9276-4F0B-A146-D48FBFE0DE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EA1965-9276-4F0B-A146-D48FBFE0DE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EA1965-9276-4F0B-A146-D48FBFE0DE39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
