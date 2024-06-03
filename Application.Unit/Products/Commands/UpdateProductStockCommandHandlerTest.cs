@@ -5,7 +5,7 @@ using Moq;
 
 namespace Application.Unit.Products.Commands
 {
-    public sealed class UpdateProductStockCommandHandlerTest
+    public class UpdateProductStockCommandHandlerTest
     {
         private readonly Mock<IProductRepository> _productRepository;
         private readonly UpdateProductStockCommandHandler _handler;
@@ -16,19 +16,18 @@ namespace Application.Unit.Products.Commands
             _handler = new UpdateProductStockCommandHandler(_productRepository.Object, new ProductFinder(_productRepository.Object));
         }
 
-        [Fact]
-        public async Task Handle_Should_BeSuccessful_WhenProductExists()
+        [Theory]
+        [ClassData(typeof(UpdateStockSuccessfullyTestData))]
+        public async Task Handle_Should_BeSuccessful_WhenProductExists(string id, int stock)
         {
-            var id = Guid.NewGuid().ToString();
-            var query = new UpdateProductStockCommand(id, 8);
+            var command = new UpdateProductStockCommand(id, stock);
 
-            var expectedProduct = CreateProduct();
-            _productRepository.Setup(mock => mock.GetById(It.IsAny<Guid>()))
-                .Returns(expectedProduct);
+            var expectedProduct = CreateProduct(new Guid(id));
+            RepositoryWillReturnProduct(expectedProduct);
 
             _productRepository.Setup(mock => mock.UpdateAsync(It.IsAny<Product>(), It.IsAny<CancellationToken>()));
 
-            await _handler.Handle(query);
+            await _handler.Handle(command);
 
             _productRepository.VerifyAll();
         }
@@ -42,12 +41,51 @@ namespace Application.Unit.Products.Commands
             await Assert.ThrowsAsync<ProductNotFoundException>(() => _handler.Handle(query));
         }
 
-        private static Product CreateProduct()
+        [Theory]
+        [ClassData(typeof(UpdateStockUnsuccessfullyTestData))]
+        public async Task Handle_Should_ThrowException_WhenStockIsNotValid(Type expectedException, string id, int stock)
+        {
+            var expectedProduct = CreateProduct(new Guid(id));
+            RepositoryWillReturnProduct(expectedProduct);
+
+            var query = new UpdateProductStockCommand(id, stock);
+
+            await Assert.ThrowsAsync(expectedException, () => _handler.Handle(query));
+        }
+
+        private static Product CreateProduct(Guid? id = null)
         {
             return Product.Create(
-                Guid.NewGuid(),
+                id ?? Guid.NewGuid(),
                 ProductName.Create("name"),
                 StockQuantity.Create(0));
+        }
+
+        private void RepositoryWillReturnProduct(Product product)
+        {
+            _productRepository
+                .Setup(mock => mock.GetById(product.Id))
+                .Returns(product);
+        }
+    }
+
+    public class UpdateStockSuccessfullyTestData : TheoryData<string, int>
+    {
+        public UpdateStockSuccessfullyTestData()
+        {
+            Add(Guid.NewGuid().ToString(), 0);
+            Add(Guid.NewGuid().ToString(), 100);
+        }
+    }
+
+    public class UpdateStockUnsuccessfullyTestData : TheoryData<Type, string, int>
+    {
+        public UpdateStockUnsuccessfullyTestData()
+        {
+            Add(
+                typeof(StockQuantityIsInvalidException),
+                Guid.NewGuid().ToString(),
+                -1);
         }
     }
 }
